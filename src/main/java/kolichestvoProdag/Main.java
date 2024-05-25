@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         ArrayList<Model> mod = new ArrayList<>();
         //TODO: Папка с расположением анализируемых файлов
-        String path = "C:\\Анализ продаж\\Движение 1квартал 2023";
+        String path = "C:\\Анализ продаж\\Движение 1 квартал 2024";
         List<Path> collect = Files.walk(Paths.get(path))
                 .filter(Files::isRegularFile)
                 .collect(Collectors.toList());

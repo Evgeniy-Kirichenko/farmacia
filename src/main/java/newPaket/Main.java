@@ -19,11 +19,11 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
 
-        String file0 = "C:\\анализ срока годности\\ССЗ\\остатки в АУ на 22.06.2023 ССЗ.xlsx";
-        String file1 = "C:\\анализ срока годности\\ССЗ\\остатки в АУ на 29.06.2023 ССЗ.xlsx";
-        String file2 = "C:\\анализ срока годности\\ССЗ\\остатки в АУ на 06.07.2023 ССЗ.xlsx";
-        String file3 = "C:\\анализ срока годности\\ССЗ\\остатки в АУ на 13.07.2023 ССЗ.xlsx";
-        //строки для строки заголовка в итоговои файлу .xlx берем дату
+        String file0 = "C:\\анализ срока годности\\ФЗ\\остатки в АУ на 27.04.2024 ФЗ.xlsx";
+        String file1 = "C:\\анализ срока годности\\ФЗ\\остатки в АУ на 08.05.2024 ФЗ.xlsx";
+        String file2 = "C:\\анализ срока годности\\ФЗ\\остатки в АУ на 17.05.2024 ФЗ.xlsx";
+        String file3 = "C:\\анализ срока годности\\ФЗ\\остатки в АУ на 24.05.2024 ФЗ.xlsx";
+        //строки для строки заголовка в итоговый файл .xlx берем дату
         String[] str = new String[]{file0.split(" ")[6],
                 file1.split(" ")[6],
                 file2.split(" ")[6],
@@ -43,8 +43,8 @@ public class Main {
         ArrayList<Product> prDelPovtor1 = exel1.listDelPovtor(pr1);
         ArrayList<Product> prDelPovtor2 = exel2.listDelPovtor(pr2);
         ArrayList<Product> prDelPovtor3 = exel3.listDelPovtor(pr3);
-        // объединяем файлы. За основу берем первую коллекцию prDelPovtor0. Добавяляем сначала prDelPovtor1(у нее количество лежит в kol0.
-        // мы его сохраняем в kol1 коллекции prDelPovtor0.
+        // Объединяем файлы. За основу берем первую коллекцию prDelPovtor0. Добавяляем сначала prDelPovtor1(у нее количество лежит в kol0.
+        // Мы его сохраняем в kol1 коллекции prDelPovtor0.
         sumCollec(prDelPovtor0, prDelPovtor1, 1);
         sumCollec(prDelPovtor0, prDelPovtor2, 2);
         sumCollec(prDelPovtor0, prDelPovtor3, 3);

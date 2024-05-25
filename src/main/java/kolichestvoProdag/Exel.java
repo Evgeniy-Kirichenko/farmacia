@@ -24,62 +24,64 @@ public class Exel {
         int num = 0;
         String lgota = "";
         for (Row row : sheet) {
-            String str = row.getCell(0).getRichStringCellValue().getString();
-            if (str.equals("Итого")) {
+            if (num >= 6) {
+                String str = row.getCell(0).getRichStringCellValue().getString();
+                if (str.equals("Итого")) {
+                    num++;
+                    continue;
+                }
+                if (str.equals("Федеральный")) {
+                    lgota = str;
+                    num++;
+                    continue;
+                }
+                if (str.equals("Без льготы")) {
+                    lgota = str;
+                    num++;
+                    continue;
+                }
+                if (str.equals("Федеральный (наркотики)")) {
+                    lgota = str;
+                    num++;
+                    continue;
+                }
+                if (str.equals("Федеральный (выс-затратные)")) {
+                    lgota = str;
+                    num++;
+                    continue;
+                }
+                if (str.equals("Региональный")) {
+                    lgota = str;
+                    num++;
+                    continue;
+                }
+                if (str.equals("ССЗ")) {
+                    lgota = str;
+                    num++;
+                    continue;
+                }
+                if (str.equals("Региональный (наркотики)")) {
+                    lgota = str;
+                    num++;
+                    continue;
+                }
+                if (str.equals("Паллиативный")) {
+                    lgota = str;
+                    num++;
+                    continue;
+                }
+                if (str.equals("Паллиативный (сильнодействующий)")) {
+                    lgota = str;
+                    num++;
+                    continue;
+                }
+                Model model = new Model();
+                model.setName(str);
+                model.setKol((int) row.getCell(3).getNumericCellValue());
+                model.setLgota(lgota);
+                product.add(model);
                 num++;
-                continue;
-            }
-            if (str.equals("Федеральный")) {
-                lgota = str;
-                num++;
-                continue;
-            }
-            if (str.equals("Без льготы")) {
-                lgota = str;
-                num++;
-                continue;
-            }
-            if (str.equals("Федеральный (наркотики)")) {
-                lgota = str;
-                num++;
-                continue;
-            }
-            if (str.equals("Федеральный (выс-затратные)")) {
-                lgota = str;
-                num++;
-                continue;
-            }
-            if (str.equals("Региональный")) {
-                lgota = str;
-                num++;
-                continue;
-            }
-            if (str.equals("ССЗ")) {
-                lgota = str;
-                num++;
-                continue;
-            }
-            if (str.equals("Региональный (наркотики)")) {
-                lgota = str;
-                num++;
-                continue;
-            }
-            if (str.equals("Паллиативный")) {
-                lgota = str;
-                num++;
-                continue;
-            }
-            if (str.equals("Паллиативный (сильнодействующий)")) {
-                lgota = str;
-                num++;
-                continue;
-            }
-            Model model = new Model();
-            model.setName(str);
-            model.setKol((int) row.getCell(1).getNumericCellValue());
-            model.setLgota(lgota);
-            product.add(model);
-            num++;
+            } else num++;
         }
         return product;
     }
@@ -116,7 +118,7 @@ public class Exel {
         }
         File file1 = new File(
                 //TODO: куда сохранять файл отчета
-                "C:\\Анализ продаж\\итог.xls");
+                "C:\\Анализ продаж\\итог 1кв 2024.xls");
         try (FileOutputStream out = new FileOutputStream
                 (file1)) {
             workbook.write(out);

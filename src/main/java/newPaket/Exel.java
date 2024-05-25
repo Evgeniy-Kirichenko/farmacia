@@ -79,7 +79,7 @@ public class Exel {
         }
 
         File file1 = new File(
-                "C:\\анализ срока годности\\Итоговые отчеты\\общая 13.07.2023 ССЗ.xls");
+                "C:\\анализ срока годности\\Итоговые отчеты\\общая 24.05.2024 ФЗ.xls");
         try (FileOutputStream out = new FileOutputStream
                 (file1)) {
             workbook.write(out);
